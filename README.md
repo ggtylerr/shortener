@@ -1,4 +1,4 @@
-# Redirector
+# Shortener
 A simple and lightweight URL redirector for set services and locations, easily configurable and usable.
 
 This was mainly made for [my hosted frontends](https://ggtyler.dev/other/frontends) -
