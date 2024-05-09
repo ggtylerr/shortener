@@ -25,7 +25,7 @@ srv.get('/', (req, res) => {
         res.sendFile("dist/index.html");
     }
     else {
-        const sub = /:\/\/([^/]+)/.exec(hostname)[1];
+        const sub = req.subdomains.join(".");
         const service = config.services.find((s) => s.slug === sub);
         if (!service) {
             res.statusCode = 500;
@@ -38,7 +38,7 @@ srv.get('/', (req, res) => {
 // Subdomains
 srv.get('/*', (req, res) => {
     const host = req.get("host");
-    const sub = /:\/\/([^/]+)/.exec(host)[1];
+    const sub = req.subdomains.join(".");
     const service = config.services.find((s) => s.slug === sub);
     if (!service) {
         res.statusCode = 500;
