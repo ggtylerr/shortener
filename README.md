@@ -15,12 +15,13 @@ This project was made in the span of a few hours - although it looks intact, ple
 6. Start the server with `yarn start`
 
 This is meant to be used in conjunction with a reverse proxy, such as nginx. Make sure
-you're passing the Host header, like so:
+you're passing the Host header and using at least HTTP 1.1, like so:
 ```nginx
 location / {
     proxy_pass http://127.0.0.1:8008;
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-For $remote-addr;
+    proxy_http_version 1.1;
 }
 ```
 
