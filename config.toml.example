@@ -1,0 +1,45 @@
+# This is the configuration file for shortener - to use it, 
+# simply rename this file to "config.toml" and configure it accordingly.
+
+# Server information
+port = 8008
+domain = "example.com"
+
+# Server locations
+# For each location, list as follows:
+#
+# [[locations]]             # Include this with each entry.
+# name = "Display name"
+# slug = "shorthand"        # A-Z, a-z, 0-9, underscores, and dashes only.
+
+[[locations]]
+name = "New York City"
+slug = "nyc"
+[[locations]]
+name = "London"
+slug = "ldn"
+
+# Default location
+# Optional, default is the first location specified.
+defaultLoc = "nyc"
+
+# Services
+# For each service, list as follows:
+# 
+# [[services]]              # Include this with each entry.
+# name = "Service Name"
+# slug = "shorthand"        # A-Z, a-z, 0-9, underscores, and dashes only.
+# slug1 = "example.com"     # Do not include https:// or any trailing slashes. 
+# slug2 = "example.org/ab"  # Path can be included.
+# path = true               # Include the path in redirection. Default true.
+
+[[services]]
+name = "Invidious"
+slug = "iv"
+nyc = "nyc.example.com"
+ldn = "ldn.example.com"
+[[services]]
+name = "Piped"
+slug = "pi"
+nyc = "nyc.example.org"
+ldn = "ldn.example.org"

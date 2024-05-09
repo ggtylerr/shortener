@@ -1,0 +1,53 @@
+---
+import fs from 'fs';
+import toml from 'toml';
+
+let config = toml.parse(fs.readFileSync('config.toml', 'utf-8'));
+
+import '../styles/style.css';
+---
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Redirector</title>
+        <script is:inline>
+            const setCookie = (location) => { document.cookie = `loc=${location}`; }
+        </script>
+    </head>
+    <body>
+        <h1><prlgm><span>Redirector</span></prlgm></h1>
+        <section>
+            <p>
+                This is a beta build. Things are still generally unpolished.
+            </p>
+            <p>
+                This service uses cookies. By setting a location, you explicitly agree to the use of these.
+                These are only used for redirection.
+            </p>
+            <a href="https://github.com/ggtylerr/redirector">Source code</a>
+        </section>
+        <h2><prlgm><span>Locations</span></prlgm></h2>
+        <section>
+            <p>★ indicates the server is the default location.</p>
+            {config.locations.map((loc, i) => (
+                <span>{(config.defaultLoc === loc.slug || i === 0 ? '★ ' : '') + loc.name}</span>
+                <button class="prlgm" onclick={`setCookie('${loc.slug}')`}><span>Set</span></button>
+                <br/>
+            ))}
+        </section>
+        <h2><prlgm><span>Services</span></prlgm></h2>
+        <section>
+            <p>
+                Services are available in two different forms: in subdomain and in slug form. 
+                You can use either <code>service.{config.domain}</code> or <code>{config.domain}/service</code> 
+                to access them.
+            </p>
+            <ul>
+                {config.services.map((service) => (
+                    <li><a href={`${config.domain}/${service.slug}`}>{service.name}</a></li>
+                ))}
+            </ul>
+        </section>
+    </body>
+</html>

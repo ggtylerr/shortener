@@ -1,0 +1,16 @@
+{
+  "name": "shortener",
+  "version": "0.0.1",
+  "description": "A simple yet more extensive URL shortener",
+  "main": "server.js",
+  "repository": "https://github.com/ggtylerr/shortener",
+  "author": "ggtyler <contact@ggtylerr.dev>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "astro": "^4.7.1",
+    "astro-compress": "^2.2.22",
+    "hyper-express": "^6.16.1",
+    "sharp": "^0.33.3",
+    "toml": "^3.0.0"
+  }
+}
