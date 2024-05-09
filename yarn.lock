@@ -735,6 +735,25 @@
     tsc-alias "1.8.8"
     typescript "5.4.4"
 
+"@playform/compress@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@playform/compress/-/compress-0.0.3.tgz#00915bacee3a8b19bd2a19a2d33852e56be49473"
+  integrity sha512-6we2ZgCc6FszEW6iSLr5HsP+q6y/E535AHcfLnihdlXUsT5K5uXDCOuPmb3RjVADeUxDSut7AA9RKnSumVtMAQ==
+  dependencies:
+    "@playform/build" "0.0.5"
+    "@playform/document" "0.0.6"
+    "@playform/pipe" "0.0.2"
+    "@types/csso" "5.0.4"
+    "@types/html-minifier-terser" "7.0.2"
+    astro "4.5.16"
+    csso "5.0.5"
+    html-minifier-terser "7.2.0"
+    kleur "4.1.5"
+    lightningcss "1.24.1"
+    sharp "0.33.3"
+    svgo "3.2.0"
+    terser "5.30.3"
+
 "@playform/document@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@playform/document/-/document-0.0.6.tgz#05938f7a95aa1c5a74f216a1cc003a35f4a1a2c2"
@@ -1047,25 +1066,6 @@ array-union@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/array-union/-/array-union-2.1.0.tgz#b798420adbeb1de828d84acd8a2e23d3efe85e8d"
   integrity sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==
-
-astro-compress@^2.2.22:
-  version "2.2.22"
-  resolved "https://registry.yarnpkg.com/astro-compress/-/astro-compress-2.2.22.tgz#9f2b0fcc5eafe1d3850cae720484c51f9bf06cac"
-  integrity sha512-0oGFjm0T+3eA+gsx75r3WnujWBSb72H3Ihn5wgrLFqAl0h/vopgt6ew8JzL5xogrLqeqs1EbpZwmCK5lLOaZUQ==
-  dependencies:
-    "@playform/build" "0.0.5"
-    "@playform/document" "0.0.6"
-    "@playform/pipe" "0.0.2"
-    "@types/csso" "5.0.4"
-    "@types/html-minifier-terser" "7.0.2"
-    astro "4.5.16"
-    csso "5.0.5"
-    html-minifier-terser "7.2.0"
-    kleur "4.1.5"
-    lightningcss "1.24.1"
-    sharp "0.33.3"
-    svgo "3.2.0"
-    terser "5.30.3"
 
 astro@4.5.16:
   version "4.5.16"

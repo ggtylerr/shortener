@@ -8,9 +8,15 @@
   "license": "GPL-3.0",
   "dependencies": {
     "astro": "^4.7.1",
-    "astro-compress": "^2.2.22",
     "hyper-express": "^6.16.1",
     "sharp": "^0.33.3",
     "toml": "^3.0.0"
+  },
+  "scripts": {
+    "build": "astro build",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "@playform/compress": "0.0.3"
   }
 }
