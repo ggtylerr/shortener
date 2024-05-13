@@ -18,7 +18,7 @@ try {
     console.error(`Config parsing error on ${e.line} : ${e.column}, message: ${e.message}`);
 }
 
-// Server index
+// Index pages
 srv.get('/', (req, res) => {
     const host = req.get("host");
     if (host == config.domain) {
@@ -31,7 +31,22 @@ srv.get('/', (req, res) => {
             res.statusCode = 500;
             res.send("Service not found - tell the admin to add it to the config file!");
         } 
-        else redirect(req, res, service);
+        else {
+            /* 
+            This redirects the subdomains to the main domain's slug redirect.
+            Why? Because of CORS. While it can technically be feasible to apply
+            CORS onto the cookies, it'd require resetting them each time a location
+            is added. It would also require the sysadmin to either change their reverse
+            proxy config each time a change is made, or for this program to somehow
+            edit it automatically. While this does introduce a little bit more
+            latency, this is simply the most reasonable middle ground.
+
+            As for using wildcards - that is simply insecure and some browsers
+            outright deny it. See https://security.stackexchange.com/a/251841
+            for more details.
+            */
+            res.redirect(`https://${config.domain}/${req.subdomains.join("/")}`);
+        }
     }
 });
 
@@ -44,7 +59,7 @@ srv.get('/*', (req, res) => {
         res.statusCode = 500;
         res.send("Service not found - tell the admin to add it to the config file!");
     } 
-    else redirect(req, res, service);
+    else res.redirect(`https://${config.domain}/${req.subdomains.join("/")}`);
 });
 
 // Slugs on main domain
